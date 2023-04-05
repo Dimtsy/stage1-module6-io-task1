@@ -30,15 +30,15 @@ public class FileReader {
             Long phone = Long.valueOf(subStrTwo[1]);
 
             return new Profile(name, age, email, phone);
-        } catch (IOException ex) {
+        } catch (IOException e) {
 
-            System.out.println(ex.getMessage());
+            e.printStackTrace();
         }
         return new Profile();
     }
 
     public static void main(String[] args) {
-        File file = new File("src\\main\\resources\\Profile.txt");
+        File file = new File("src\\main\\resources\\Profile1.txt");
         FileReader fileReader = new FileReader();
         fileReader.getDataFromFile(file);
     }
