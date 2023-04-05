@@ -7,7 +7,7 @@ public class FileReader {
     public Profile getDataFromFile(File file) {
         try (FileInputStream fin = new FileInputStream(file)) {
             DataInputStream in = new DataInputStream(fin);
-            try (BufferedReader out = new BufferedReader(new InputStreamReader(in))) {
+            BufferedReader out = new BufferedReader(new InputStreamReader(in));
                 String strLine;
                 String[][] subStr = new String[out.read()][2];
                 int i = 0;
@@ -19,9 +19,6 @@ public class FileReader {
                 out.close();
                 return new Profile(subStr[0][1], Integer.parseInt(subStr[1][1]),
                         subStr[2][1], Long.valueOf(subStr[3][1]));
-            } catch (Exception e) {
-                e.getStackTrace();
-            }
 
         } catch (IOException e) {
             e.printStackTrace();
